@@ -184,13 +184,20 @@ class Converters
 	public static function parseImageString(string $file) : array
 	{
 		// Extract info from file string
-		preg_match("/\b(?:(?P<provider>[a-zA-Z]+)\:)?(?P<storage>[a-zA-Z_]+)\:\/\/(?:(?<namespace>[a-zA-Z0-9-_\/]+)\/)?(?<name>[a-zA-Z0-9-_]+).(?P<extension>[a-zA-Z]{3}+)/i", $file, $matches);
+		preg_match('/\b(?:(?P<provider>[a-zA-Z]+)\:)?(?P<storage>[a-zA-Z_]+)\:\/\/(?:(?<namespace>.+)\/)?(?<name>.+)\.{0,1}(?P<extension>[a-zA-Z]{0,3}+)/i', $file, $matches);
+
+		$filename = NULL;
+		if(isset($matches['name']) && isset($matches['extension']) && $matches['extension'] != '') {
+			$filename = $matches['name'] . '.' . $matches['extension'];
+		} elseif(isset($matches['name'])) {
+			$filename = $matches['name'];
+		}
 
 		$arguments = [
 			'provider'  => isset($matches['provider']) && !empty($matches['provider']) ? $matches['provider'] : NULL,
 			'storage'   => isset($matches['storage']) && !empty($matches['storage']) ? $matches['storage'] : NULL,
 			'namespace' => isset($matches['namespace']) && trim(trim(trim($matches['namespace']), '/'), DIRECTORY_SEPARATOR) ? $matches['namespace'] : NULL,
-			'filename'  => isset($matches['name']) && isset($matches['extension']) ? $matches['name'] . '.' . $matches['extension'] : NULL,
+			'filename'  => $filename,
 		];
 
 		return $arguments;
