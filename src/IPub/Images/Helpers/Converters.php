@@ -184,7 +184,7 @@ class Converters
 	public static function parseImageString(string $file) : array
 	{
 		// Extract info from file string
-		preg_match('/\b(?:(?P<provider>[a-zA-Z]+)\:)?(?P<storage>[a-zA-Z_]+)\:\/\/(?:(?<namespace>.+)\/)?(?<name>.+)\.{0,1}(?P<extension>[a-zA-Z]{0,3}+)/i', $file, $matches);
+		preg_match('/(?:(?<provider>.+)\:)?(?P<storage>.+)\:\/\/(?:(?<namespace>.+)\/)?(?<name>.+)\.{0,1}(?P<extension>[a-zA-Z]{0,3}+)/i', $file, $matches);
 
 		$filename = NULL;
 		if(isset($matches['name']) && isset($matches['extension']) && $matches['extension'] != '') {
