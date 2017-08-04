@@ -98,7 +98,7 @@ class PresenterProvider extends Nette\Object implements IProvider
 		}
 
 		if (!$fileSystem->has(($namespace === NULL ? NULL : $namespace . DIRECTORY_SEPARATOR) . $filename)) {
-			throw new Exceptions\FileNotFoundException(sprintf('Image: "%s" in storage: "%s" was not found.', (($namespace === NULL ? NULL : $namespace . DIRECTORY_SEPARATOR) . $filename), $storage));
+			//throw new Exceptions\FileNotFoundException(sprintf('Image: "%s" in storage: "%s" was not found.', (($namespace === NULL ? NULL : $namespace . DIRECTORY_SEPARATOR) . $filename), $storage));
 		}
 
 		// Parse size
