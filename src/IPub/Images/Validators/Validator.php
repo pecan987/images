@@ -30,8 +30,10 @@ use IPub\Images\Exceptions;
  * @author         Adam Kadlec <adam.kadlec@fastybird.com>
  * @inspiredBy     dotBlue <http://dotblue.net>
  */
-class Validator extends Nette\Object implements IValidator
+class Validator implements IValidator
 {
+	use Nette\SmartObject;
+
 	/**
 	 * Define class name
 	 */

@@ -35,8 +35,10 @@ use League\Flysystem;
  *
  * @author         Adam Kadlec <adam.kadlec@fastybird.com>
  */
-final class Helpers extends Nette\Object
+final class Helpers
 {
+	use Nette\SmartObject;
+
 	/**
 	 * Define class name
 	 */
