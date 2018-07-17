@@ -36,8 +36,10 @@ use League\Flysystem;
  *
  * @author         Adam Kadlec <adam.kadlec@fastybird.com>
  */
-final class ImagesLoader extends Nette\Object
+final class ImagesLoader
 {
+	use Nette\SmartObject;
+
 	/**
 	 * Define class name
 	 */
