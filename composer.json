@@ -22,7 +22,7 @@
 	"require": {
 		"php"	: ">=7.0.0",
 
-		"ipub/flysystem"	: "dev-Nette24Compatibility",
+		"ipub/flysystem"	: "1.1.4",
 
 		"nette/application"	: "~2.3@dev",
 		"nette/di"			: "~2.3@dev",
